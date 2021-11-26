@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://openlayers.org/favicon.ico"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💎 Hackathon</title>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div class="overlay">
+      <h1 id="name">Hämtar...</h1>
+      <div class="currency">
+        <p id="money"></p>
+        <i id="addMoney" class="material-icons">add</i>
+      </div>
+      <div class="controls">
+        <input type="checkbox" id="editModeCheckbox" />
+        <label for="editModeCheckbox">Redigeringsläge</label>
+      </div>
+      <div class="markedarea edit-mode-only hidden">
+        <h2>Markerad Area</h2>
+        <p id="markedArea">0 m²</p>
+        <input type="color" id="color" name="color" />
+        <textarea
+          name="description"
+          id="description"
+          cols="30"
+          rows="10"
+        ></textarea>
+      </div>
+      <div class="availability">
+        <div class="available">
+          <div class="avail hidden">
+            <i class="material-icons check">check</i>
+            <p>Tillgängligt</p>
+          </div>
+          <button
+            class="purchase edit-mode-only hidden"
+            id="buyButton"
+            type="button"
+          >
+            KÖP MARK
+          </button>
+        </div>
+        <div class="unavailable hidden">
+          <div class="owned">
+            <h2>Denna mark ägs redan av:</h2>
+            <p class="owner">Bartin Hansson</p>
+          </div>
+          <h2>Ägaren säger:</h2>
+          <p class="ownercomment">Haha jag köpte innan dig för jag är rik!!</p>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

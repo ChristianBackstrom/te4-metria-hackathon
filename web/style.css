@@ -1,0 +1,115 @@
+@import 'node_modules/ol/ol.css';
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.overlay {
+  font-family: 'Nunito', sans-serif;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  position: absolute;
+  top: 41px;
+  right: 0;
+  max-width: 15%;
+  width: 100%;
+  border-radius: 13px 0px 0px 13px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.overlay h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.overlay h2 {
+  margin: 0;
+}
+
+.overlay p {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.currency {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.available {
+  display: flex;
+  flex-direction: column;
+  font-style: italic;
+  margin-top: 2.5rem;
+}
+
+.avail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.check {
+  color: #4fd785;
+  padding-right: 0.5rem;
+}
+
+.markedarea {
+  margin-top: 2.5rem;
+}
+
+.purchase {
+  font-size: 1.5rem;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  background-color: #4fd785;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.purchase:hover {
+  background-color: #37d275;
+}
+
+.purchase:active {
+  background-color: #2ab762;
+}
+
+.unavailable {
+  margin-top: 2.5rem;
+}
+
+.owned {
+  margin-bottom: 2.5rem;
+}
+
+.owner {
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.ownercomment {
+  font-style: italic;
+}
+
+.material-icons {
+  display: flex;
+  font-size: 2rem;
+}
+
+.hidden {
+  display: none;
+}
