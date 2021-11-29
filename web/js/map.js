@@ -9,7 +9,7 @@ import { getArea } from 'ol/sphere';
 import * as turf from '@turf/turf';
 
 import db from './db';
-import { setArea, setUser } from './ui';
+import { setArea, setUser, setSelectedPlot } from './ui';
 
 // Create map, layers and source
 
@@ -27,7 +27,7 @@ const map = new Map({
   layers: [tileLayer, vectorLayer],
   view: new View({
     center: [0, 0],
-    zoom: 2,
+    zoom: 1,
   }),
 });
 
@@ -46,6 +46,10 @@ setUser(user);
 const plots = await db.getPlots();
 
 plots.forEach((plot) => {
+  drawPlot(plot);
+});
+
+function drawPlot(plot) {
   const ring = plot.polygon.map((point) => {
     return [point.lng, point.lat];
   });
@@ -75,12 +79,21 @@ plots.forEach((plot) => {
   );
 
   vectorSource.addFeature(feature);
-});
+}
 
 // Select interaction
 
 export const selectInteraction = new Select();
 map.addInteraction(selectInteraction);
+
+selectInteraction.on('select', (event) => {
+  const selectedFeatures = event.target.getFeatures();
+  if (selectedFeatures.getLength() > 0) {
+    setSelectedPlot(selectedFeatures.item(0));
+  } else {
+    setSelectedPlot(null);
+  }
+});
 
 // Draw interaction
 
@@ -147,6 +160,8 @@ document.getElementById('buyButton').addEventListener('click', (event) => {
     polygon: polygonCoordinates,
   };
 
+  console.log('A: ', getArea(polygon));
+
   db.postPlot(plot);
   db.updateUser(user.id, { money: user.money - getArea(polygon) });
 
@@ -162,6 +177,7 @@ vectorSource.on('changefeature', (event) => {
 function updateUIArea(feature) {
   const areaSquareMeters = getArea(feature.getGeometry());
 
+  //converts from m^2 to km^2
   const formattedArea = (
     areaSquareMeters > 100000 ? areaSquareMeters / 1000000 : areaSquareMeters
   ).toFixed(2);
@@ -191,6 +207,7 @@ function polygonIntersectsAnyOtherFeature(polygon) {
 }
 
 function validate(polygon) {
+  console.log('B: ', getArea(polygon));
   if (polygonIntersectsAnyOtherFeature(polygon)) {
     return 'Det markerade området överlappar ett annat område.';
   }
@@ -204,7 +221,7 @@ function validate(polygon) {
 }
 
 document.getElementById('addMoney').addEventListener('click', (event) => {
-  const input = prompt('Hur mycket pengar vill du sätta in?');
+  const input = prompt('Hur mycket pengar vill du sätta in? (m²)');
   if (input) {
     db.updateUser(user.id, { money: user.money + parseInt(input) });
     location.reload();
@@ -212,7 +229,28 @@ document.getElementById('addMoney').addEventListener('click', (event) => {
 });
 
 document.getElementById('name').addEventListener('click', (event) => {
-  const input = prompt('Ange ditt namn');
+  const input = prompt('Byt namn på din användare');
   console.log(user.id, input);
   db.updateUser(user.id, { name: input });
+});
+
+document.body.addEventListener('keydown', (event) => {
+  if (event.key == 'PageUp') {
+    console.log(
+      JSON.stringify(
+        vectorSource
+          .getFeatures()
+          [vectorSource.getFeatures().length - 1].getGeometry()
+          .clone()
+          .transform('EPSG:3857', 'EPSG:4326')
+          .getCoordinates()[0]
+          .map((point) => {
+            return {
+              lat: point[1],
+              lng: point[0],
+            };
+          })
+      )
+    );
+  }
 });

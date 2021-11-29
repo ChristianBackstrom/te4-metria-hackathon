@@ -29,13 +29,19 @@
       <div class="markedarea edit-mode-only hidden">
         <h2>Markerad Area</h2>
         <p id="markedArea">0 m²</p>
-        <input type="color" id="color" name="color" />
-        <textarea
-          name="description"
-          id="description"
-          cols="30"
-          rows="10"
-        ></textarea>
+        <div class="colorclass">
+          <input class="colorpicker" type="color" id="color" name="color" />
+          <label>Välj Färg</label>
+        </div>
+        <div class="comment">
+          <label>Beskrivning</label>
+          <textarea
+            name="description"
+            id="description"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
       </div>
       <div class="availability">
         <div class="available">
@@ -51,14 +57,16 @@
             KÖP MARK
           </button>
         </div>
-        <div class="unavailable hidden">
-          <div class="owned">
-            <h2>Denna mark ägs redan av:</h2>
-            <p class="owner">Bartin Hansson</p>
-          </div>
-          <h2>Ägaren säger:</h2>
-          <p class="ownercomment">Haha jag köpte innan dig för jag är rik!!</p>
+      </div>
+      <div id="owner" class="owner hidden">
+        <div class="owned">
+          <h2>Denna mark ägs av:</h2>
+          <p id="ownerName" class="ownername">Bartin Hansson</p>
         </div>
+        <h2>Ägaren säger:</h2>
+        <p id="ownerComment" class="ownercomment">
+          Haha jag köpte innan dig för jag är rik!!
+        </p>
       </div>
     </div>
     <script type="module" src="./main.js"></script>

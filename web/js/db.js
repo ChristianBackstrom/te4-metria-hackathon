@@ -18,7 +18,6 @@ export default {
   },
   async getPlots() {
     const response = await fetch(`http://${API_ADDRESS}/plots`);
-    console.log('Den kör');
     const plots = await response.json();
     return plots;
   },

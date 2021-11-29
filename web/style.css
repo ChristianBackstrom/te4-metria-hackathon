@@ -70,6 +70,24 @@ body {
   margin-top: 2.5rem;
 }
 
+.colorclass {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 1rem;
+  padding-left: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.colorpicker {
+  margin-right: 0.5rem;
+}
+
+.comment label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 .purchase {
   font-size: 1.5rem;
   font-family: 'Nunito', sans-serif;
@@ -96,8 +114,7 @@ body {
   margin-bottom: 2.5rem;
 }
 
-.owner {
-  text-decoration: underline;
+.ownername {
   font-style: italic;
 }
 
