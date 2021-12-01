@@ -1,0 +1,27 @@
+# TE4-Metria-Hackathon
+
+Christian Berggren Bäckström 01/12 - 2021
+
+Det här är ett projekt för metrias hackathon där vi använder oss av polygoner för att ha ett köp system av mark på en karta. 
+
+## Inledning
+
+Målet med detta arbete var att göra ett projekt som vi skulle kunna nominera till metrias höst hackathon 2021. Vi började med att brainstorma ideer runt temat e-handel/kartor. Sedan när vi väl hade fått ihop våran idee började vi dela upp projektet i olika delar och designerade uppgifter till alla personer i projektet. Sedan fixade vi grunderna och gick upp till mer detaljer och fixade problem som uppstådde under utvecklingsprocessen.
+
+## Bakgrund
+
+Det började med att vi brainstorma genom att använda oss av alla ideer på olika kort och komma på ideer med två kort i taget. Sedan röstade vi på de ideer som hade kommits på för att alla ska bli enade om vad vi ska göra. När vi väl hade kommit fram till det vi ville göra började vi dela upp projektet i olika delar för att alla skulle få en del och hade något att göra. Det slutade med att vi skulle göra en e-handels platform där man kan köpa mark via internet på en karta med hjälp av polygoner. Man får en summa i m^2 som man fick handla mark för i en 1:1 skala på m^2. Innan detta hackathon började vi testa api som skulle behövas för att detta projekt skulle kunna göras. Till exempel testades openlayers för att kunna skapa en karta. Sedan satte vi igång att skriva koden för hackathon. Vi valde oss att använda oss av ett eget api som skulle spara all data i en mock databas i form av en json fil med objekt eftersom detta var ett litet projekt. 
+
+## Positiva erfarenheter
+
+Här beskriver du vad som har gått bra i ditt projekt och analyserar varför. Hur ska du upprepa framgångarna.
+
+Det gick väldigt bra med våran brainstorming i detta projekt. Det var effektivt och med många ideer blev det lätt att sätta upp många olika ideer runt de teman som vi hade och följa efter. Detta kan man lätt upprepa genom att följa de guider vi har fått av lärare tidigare och vara väldigt strikta med att följa de olika delar i det. 
+
+## Negativa erfarenheter
+
+Ett problem vi hade under detta projekt var att vi inte alls hade testat oss av en teknik vi visste vi skulle använda oss av och antog att det skulle gå bra direkt. Detta gjorde att våran databas kunde helt strykas bort ibland. Detta var lätt att undvika genom att testa att göra ett api som skrev till en mock databas och se exakt hur de fungerade.
+
+## Sammanfattning
+
+Detta var ett lärorikt projekt speciellt med förbredelse biten genom att jag märkte hur viktigt det är med en klar ide om vad man ska göra och vilka tekniska bitar man måste ha i det för att kunna testa de innan man sätter in de i projektet. Detta program vi har gjort har många olika utvecklings delar då detta endast är en prototyp så massvis med utrymme för utveckling finns. 
